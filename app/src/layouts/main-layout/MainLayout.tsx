@@ -1,9 +1,11 @@
 import React from 'react';
 
+import Header from 'components/header/Header';
+
 const MainLayout: React.FC = ({ children }) => {
   return (
     <div>
-      Layout
+      <Header />
       <div>
         {children}
       </div>
