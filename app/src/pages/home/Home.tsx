@@ -1,10 +1,12 @@
 import React from 'react';
 
+import MainLayout from 'layouts/main-layout/MainLayout';
+
 const Home = () => {
   return (
-    <div>
+    <MainLayout>
       Home
-    </div>
+    </MainLayout>
   );
 };
 
