@@ -1,12 +1,20 @@
 module.exports = {
+  env: {
+    "browser": true,
+    "es2021": true
+  },
   extends: [
     'airbnb',
-    'airbnb-typescript'
+    'airbnb-typescript',
+    'prettier'
   ],
+  plugins: ['prettier'],
   parserOptions: {
     project: './tsconfig.json'
   },
   rules: {
+    'prettier/prettier': 'error',
+
     'react/function-component-definition': [
       2,
       {
