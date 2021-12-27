@@ -14,10 +14,21 @@ const Header = () => (
           <Logo src={LogoImage} alt="" />
         </Link>
         <Nav>
-          <NavItem>1</NavItem>
-          <NavItem>2</NavItem>
-          <NavItem>3</NavItem>
-          <NavItem>4</NavItem>
+          <NavItem active>
+            <Link to="/">Top</Link>
+          </NavItem>
+          <NavItem>
+            <Link to="/">New</Link>
+          </NavItem>
+          <NavItem>
+            <Link to="/">Show</Link>
+          </NavItem>
+          <NavItem>
+            <Link to="/">Ask</Link>
+          </NavItem>
+          <NavItem>
+            <Link to="/">Jobs</Link>
+          </NavItem>
         </Nav>
       </Wrapper>
     </FullContent>
