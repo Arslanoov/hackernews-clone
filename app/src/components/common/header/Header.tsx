@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import LogoImage from 'assets/img/logo.jpg';
 
 import { FullContent } from 'components/styled/content';
-import { HeaderContent, Wrapper, Logo, Nav, NavItem } from './HeaderStyled';
+import { HeaderContent, Wrapper, Logo, Nav, NavItem } from './styles';
 
 const Header = () => (
   <HeaderContent className="container">

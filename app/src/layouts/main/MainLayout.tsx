@@ -1,12 +1,14 @@
 import React from 'react';
 
-import Header from 'components/header/Header';
+import Header from 'components/common/header/Header';
+
+import { LayoutBackground } from './styles';
 
 const MainLayout: React.FC = ({ children }) => (
-  <div>
+  <LayoutBackground>
     <Header />
     <div>{children}</div>
-  </div>
+  </LayoutBackground>
 );
 
 export default MainLayout;

@@ -9,10 +9,6 @@ export const HeaderContent = styled.header`
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
-
-  max-width: 80rem;
-
-  margin: 0 auto;
 `;
 
 export const Logo = styled.img`
