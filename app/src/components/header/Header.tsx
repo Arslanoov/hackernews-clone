@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import LogoImage from 'assets/img/logo.jpg';
 
@@ -9,7 +10,9 @@ const Header = () => (
   <HeaderContent className="container">
     <FullContent>
       <Wrapper>
-        <Logo src={LogoImage} alt="" />
+        <Link to="/">
+          <Logo src={LogoImage} alt="" />
+        </Link>
         <Nav>
           <NavItem>1</NavItem>
           <NavItem>2</NavItem>

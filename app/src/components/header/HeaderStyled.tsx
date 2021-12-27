@@ -21,6 +21,8 @@ export const Logo = styled.img`
   height: 2.5rem;
 
   border: 0.1rem solid #fff;
+
+  user-select: none;
 `;
 
 export const Nav = styled.ul`
