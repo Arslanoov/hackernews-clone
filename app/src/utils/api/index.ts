@@ -1,9 +1,10 @@
-import { apiFetch } from './fetch';
+import { StoriesResponse, StoryResponse } from 'types/response/item';
+import { StoryListsTypes } from 'types/item';
 
-export const fetchTopStories = () => {
-  apiFetch('/topstories.json');
-};
+import api from './instance';
 
-export const fetchStory = (id: number) => {
-  apiFetch(`item/${id}.json`);
-};
+export const fetchStories = (type: StoryListsTypes): StoriesResponse =>
+  api.get(`/${type}stories.json`);
+
+export const fetchStory = (id: number): StoryResponse =>
+  api.get(`item/${id}.json`);

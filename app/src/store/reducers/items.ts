@@ -6,12 +6,14 @@ import { ItemsActionType } from 'store/action-types/items';
 import { ItemInterface } from 'types/item';
 
 interface ItemsState {
+  items: ItemInterface[];
   lists: {
-    top: ItemInterface[];
+    top: number[];
   };
 }
 
 const initialState: ItemsState = {
+  items: [],
   lists: {
     top: [],
   },
@@ -20,8 +22,12 @@ const initialState: ItemsState = {
 const reducer = produce(
   (state: ItemsState = initialState, action: ItemsAction) => {
     switch (action.type) {
-      case ItemsActionType.FETCH_TOP_LIST:
-        state.lists.top = action.payload.items;
+      case ItemsActionType.SET_LIST:
+        state.lists[action.payload.list] = action.payload.listItems;
+        return state;
+
+      case ItemsActionType.SET_ITEMS_LIST:
+        state.items = action.payload.items;
         return state;
 
       default:

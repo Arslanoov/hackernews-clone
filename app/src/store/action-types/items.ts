@@ -1,3 +1,4 @@
 export enum ItemsActionType {
-  FETCH_TOP_LIST = 'fetch_top_list',
+  SET_LIST = 'set_list',
+  SET_ITEMS_LIST = 'set_items_list',
 }
