@@ -35,7 +35,7 @@ export const Title = styled.h3`
   font-weight: 400;
 `;
 
-export const Source = styled.div`
+export const Source = styled.a`
   color: #828282;
 `;
 

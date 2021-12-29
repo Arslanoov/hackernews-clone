@@ -17,4 +17,11 @@ export interface SetListAction {
   };
 }
 
-export type ItemsAction = SetItemsAction | SetListAction;
+export interface SetPageAction {
+  type: ItemsActionType.SET_CURRENT_PAGE;
+  payload: {
+    page: number;
+  };
+}
+
+export type ItemsAction = SetItemsAction | SetListAction | SetPageAction;

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { ItemInterface } from 'types/item';
+
 import {
   Wrapper,
   Score,
@@ -11,18 +13,22 @@ import {
   Row,
 } from './styles';
 
-const CardItem = () => (
+type Props = {
+  item: ItemInterface;
+};
+
+const CardItem: React.FC<Props> = ({ item }) => (
   <Wrapper>
-    <Score>138</Score>
+    <Score>{item.score}</Score>
     <div>
       <Row>
-        <Title>Title</Title>
-        <Source>(Source)</Source>
+        <Title>{item.title}</Title>
+        <Source href={item.url}>({item.url})</Source>
       </Row>
       <Row>
-        <Author>By ...</Author>
+        <Author>By {item.by}</Author>
         <Line />
-        <CommentsCount>0 comments</CommentsCount>
+        <CommentsCount>{item.descendants} comments</CommentsCount>
       </Row>
     </div>
   </Wrapper>

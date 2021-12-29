@@ -1,4 +1,12 @@
-export interface ItemInterface {}
+export interface ItemInterface {
+  id: number;
+  by: string;
+  descendants: number;
+  score: number;
+  title: string;
+  type: string;
+  url: string;
+}
 
 export type Stories = number[];
 
