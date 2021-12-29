@@ -1,16 +1,12 @@
 module.exports = {
   env: {
-    "browser": true,
-    "es2021": true
+    browser: true,
+    es2021: true,
   },
-  extends: [
-    'airbnb',
-    'airbnb-typescript',
-    'prettier'
-  ],
+  extends: ['airbnb', 'airbnb-typescript', 'prettier'],
   plugins: ['prettier'],
   parserOptions: {
-    project: './tsconfig.json'
+    project: './tsconfig.json',
   },
   rules: {
     'prettier/prettier': 'error',
@@ -18,13 +14,14 @@ module.exports = {
     'react/function-component-definition': [
       2,
       {
-        namedComponents: "arrow-function",
-        unnamedComponents: "arrow-function",
+        namedComponents: 'arrow-function',
+        unnamedComponents: 'arrow-function',
       },
     ],
 
+    '@typescript-eslint/default-param-last': 0,
     'import/prefer-default-export': 0,
     'no-param-reassign': 0,
-    '@typescript-eslint/default-param-last': 0,
-  }
+    'no-plusplus': 0,
+  },
 };

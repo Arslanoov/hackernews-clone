@@ -1,17 +1,24 @@
 import React from 'react';
 
-import { Wrapper, Pages, Page, Arrow } from './styles';
+import { Wrapper, CurrentPage, Arrow } from './styles';
 
-const Pagination = () => (
+type Props = {
+  currentPage: number;
+  pagesCount: number;
+  setPage: (page: number) => void;
+};
+
+const Pagination: React.FC<Props> = ({ currentPage, pagesCount, setPage }) => (
   <Wrapper>
-    <Arrow>{'<--'}</Arrow>
-    <Pages>
-      <Page>1</Page>
-      <Page>2</Page>
-      <Page>3</Page>
-      <Page>4</Page>
-    </Pages>
-    <Arrow>{'-->'}</Arrow>
+    <Arrow onClick={() => currentPage !== 1 && setPage(currentPage - 1)}>
+      {'<--'}
+    </Arrow>
+    <CurrentPage>
+      {currentPage}/{pagesCount}
+    </CurrentPage>
+    <Arrow onClick={() => pagesCount > currentPage && setPage(currentPage + 1)}>
+      {'-->'}
+    </Arrow>
   </Wrapper>
 );
 

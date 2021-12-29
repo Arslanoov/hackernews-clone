@@ -6,13 +6,13 @@ import { STORIES_PER_PAGE } from 'config/pagination';
 
 import { fetchStories, fetchStory } from 'utils/api';
 
+import { RootState } from 'store/reducers';
 import { ItemsAction } from 'store/actions/items';
 import { ItemsActionType } from 'store/action-types/items';
 
-export const fetchTopList =
-  (page: number = 1) =>
-  async (dispatch: Dispatch<ItemsAction>) => {
-    const { data: storiesList } = await fetchStories(StoryListsTypes.Top);
+export const fetchList =
+  (type: StoryListsTypes) => async (dispatch: Dispatch<ItemsAction>) => {
+    const { data: storiesList } = await fetchStories(type);
     dispatch({
       type: ItemsActionType.SET_LIST,
       payload: {
@@ -20,10 +20,16 @@ export const fetchTopList =
         listItems: storiesList,
       },
     });
+  };
 
-    const paginatedStoriesList = storiesList.slice(
+export const fetchListItems =
+  (type: StoryListsTypes, page: number = 1) =>
+  async (dispatch: Dispatch<ItemsAction>, getState: () => RootState) => {
+    const { items } = getState();
+
+    const paginatedStoriesList = (items?.lists[type] as number[]).slice(
       STORIES_PER_PAGE * (page - 1),
-      STORIES_PER_PAGE
+      STORIES_PER_PAGE * page
     );
     const stories = await Promise.all(
       paginatedStoriesList.map(

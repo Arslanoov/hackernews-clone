@@ -2,46 +2,26 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 
-  background-color: #fff;
+  padding: 1.5rem 0;
 
-  user-select: none;
+  background-color: #fff;
 `;
 
 export const Arrow = styled.div`
   font-size: 2rem;
 
+  user-select: none;
+
   &:hover {
     cursor: pointer;
   }
 `;
 
-export const Pages = styled.div`
-  display: flex;
-  align-items: center;
+export const CurrentPage = styled.div`
+  margin: 0 3rem;
 
-  margin: 1rem 0;
-`;
-
-export const Page = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 3rem;
-  height: 3rem;
-
-  font-size: 1.3rem;
-
-  color: #fd6a0b;
-
-  &:not(:last-of-type) {
-    margin-right: 1rem;
-  }
-
-  &:hover {
-    cursor: pointer;
-  }
+  font-size: 1.4rem;
 `;
