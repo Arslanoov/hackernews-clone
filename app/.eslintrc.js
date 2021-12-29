@@ -23,6 +23,8 @@ module.exports = {
       },
     ],
 
-    'import/prefer-default-export': 0
+    'import/prefer-default-export': 0,
+    'no-param-reassign': 0,
+    '@typescript-eslint/default-param-last': 0,
   }
 };
