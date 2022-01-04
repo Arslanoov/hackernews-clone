@@ -19,6 +19,12 @@ const initialState: ItemsState = {
   },
 };
 
+// TODO: Separate
+const extractDomainFromUrl = (url: string): string => {
+  const matches = url.match(/^https?:\/\/([^/?#]+)(?:[/?#]|$)/i);
+  return (matches && matches[1]) ?? '';
+};
+
 const reducer = produce(
   (state: ItemsState = initialState, action: ItemsAction) => {
     switch (action.type) {
@@ -27,6 +33,9 @@ const reducer = produce(
         return state;
 
       case ItemsActionType.SET_ITEMS_LIST:
+        action.payload.items.forEach(
+          (item) => (item.url = extractDomainFromUrl(item.url))
+        );
         state.items = action.payload.items;
         return state;
 
