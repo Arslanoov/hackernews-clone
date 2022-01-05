@@ -17,7 +17,7 @@ const Pagination: React.FC<Props> = ({ currentPage, pagesCount, setPage }) => (
       {'<--'}
     </Arrow>
     <CurrentPage>
-      {currentPage}/{pagesCount ?? '1'}
+      {currentPage}/{Math.max(pagesCount, 1)}
     </CurrentPage>
     <Arrow
       disabled={pagesCount <= currentPage}

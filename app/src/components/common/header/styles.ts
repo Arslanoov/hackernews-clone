@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { NavLink } from 'react-router-dom';
+
 export const HeaderContent = styled.header`
   padding: 1.5rem 0;
 
@@ -34,10 +36,12 @@ export const Nav = styled.ul`
   list-style: none;
 `;
 
-export const NavItem = styled.li`
-  ${({ active = false }: { active?: boolean }) => active && 'font-weight: 400;'}
-
+export const NavItem = styled(NavLink)`
   &:not(:last-of-type) {
     margin-right: 2.5rem;
+  }
+
+  &.active {
+    font-weight: 400;
   }
 `;

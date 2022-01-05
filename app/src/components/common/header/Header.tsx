@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import LogoImage from 'assets/img/logo.jpg';
 
@@ -10,24 +10,39 @@ const Header = () => (
   <HeaderContent className="container">
     <FullContent>
       <Wrapper>
-        <Link to="/">
+        <NavLink to="/">
           <Logo src={LogoImage} alt="" />
-        </Link>
+        </NavLink>
         <Nav>
-          <NavItem active>
-            <Link to="/stories/top">Top</Link>
+          <NavItem
+            className={(navData) => (navData.isActive ? 'active' : '')}
+            to="/stories/top"
+          >
+            Top
           </NavItem>
-          <NavItem>
-            <Link to="/stories/new">New</Link>
+          <NavItem
+            className={(navData) => (navData.isActive ? 'active' : '')}
+            to="/stories/new"
+          >
+            New
           </NavItem>
-          <NavItem>
-            <Link to="/stories/show">Show</Link>
+          <NavItem
+            className={(navData) => (navData.isActive ? 'active' : '')}
+            to="/stories/show"
+          >
+            Show
           </NavItem>
-          <NavItem>
-            <Link to="/stories/ask">Ask</Link>
+          <NavItem
+            className={(navData) => (navData.isActive ? 'active' : '')}
+            to="/stories/ask"
+          >
+            Ask
           </NavItem>
-          <NavItem>
-            <Link to="/stories/job">Jobs</Link>
+          <NavItem
+            className={(navData) => (navData.isActive ? 'active' : '')}
+            to="/stories/job"
+          >
+            Jobs
           </NavItem>
         </Nav>
       </Wrapper>

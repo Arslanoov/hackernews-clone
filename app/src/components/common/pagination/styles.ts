@@ -20,7 +20,7 @@ export const Arrow = styled.div<ArrowProps>`
   user-select: none;
 
   &:hover {
-    ${(props) => !props.disabled && 'cursor: pointer;'}
+    ${({ disabled }) => !disabled && 'cursor: pointer;'}
   }
 `;
 
