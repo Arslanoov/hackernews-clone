@@ -13,4 +13,7 @@ export type Stories = number[];
 export enum StoryListsTypes {
   Top = 'top',
   New = 'new',
+  Show = 'show',
+  Ask = 'ask',
+  Job = 'job',
 }

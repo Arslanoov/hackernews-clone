@@ -3,8 +3,6 @@ import produce from 'immer';
 import { ItemsAction } from 'store/actions/items';
 import { ItemsActionType } from 'store/action-types/items';
 
-import { extractDomainFromUrl } from 'utils/helpers/extractDomain';
-
 import { ItemInterface } from 'types/item';
 
 interface ItemsState {
@@ -12,6 +10,9 @@ interface ItemsState {
   lists: {
     top: number[];
     new: number[];
+    show: number[];
+    ask: number[];
+    job: number[];
   };
 }
 
@@ -20,6 +21,9 @@ const initialState: ItemsState = {
   lists: {
     top: [],
     new: [],
+    show: [],
+    ask: [],
+    job: [],
   },
 };
 
@@ -31,9 +35,6 @@ const reducer = produce(
         return state;
 
       case ItemsActionType.SET_ITEMS_LIST:
-        action.payload.items.forEach(
-          (item) => (item.url = extractDomainFromUrl(item.url))
-        );
         state.items = action.payload.items;
         return state;
 

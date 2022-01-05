@@ -6,8 +6,7 @@ import {
   Navigate,
 } from 'react-router-dom';
 
-import TopStories from 'pages/stories/top';
-import NewStories from 'pages/stories/new';
+import StoriesList from 'pages/stories/List';
 
 import 'assets/styles/main.scss';
 
@@ -15,8 +14,7 @@ const App = () => (
   <Router>
     <Routes>
       <Route path="/" element={<Navigate to="/stories/top" />} />
-      <Route path="/stories/top" element={<TopStories />} />
-      <Route path="/stories/new" element={<NewStories />} />
+      <Route path="/stories/:type" element={<StoriesList />} />
     </Routes>
   </Router>
 );

@@ -15,19 +15,19 @@ const Header = () => (
         </Link>
         <Nav>
           <NavItem active>
-            <Link to="/">Top</Link>
+            <Link to="/stories/top">Top</Link>
           </NavItem>
           <NavItem>
-            <Link to="/">New</Link>
+            <Link to="/stories/new">New</Link>
           </NavItem>
           <NavItem>
-            <Link to="/">Show</Link>
+            <Link to="/stories/show">Show</Link>
           </NavItem>
           <NavItem>
-            <Link to="/">Ask</Link>
+            <Link to="/stories/ask">Ask</Link>
           </NavItem>
           <NavItem>
-            <Link to="/">Jobs</Link>
+            <Link to="/stories/job">Jobs</Link>
           </NavItem>
         </Nav>
       </Wrapper>

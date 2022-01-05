@@ -9,6 +9,7 @@ import { fetchStories, fetchStory } from 'utils/api';
 import { RootState } from 'store/reducers';
 import { ItemsAction } from 'store/actions/items';
 import { ItemsActionType } from 'store/action-types/items';
+import { extractDomainFromUrl } from '../../utils/helpers/extractDomain';
 
 export const fetchList =
   (type: StoryListsTypes) => async (dispatch: Dispatch<ItemsAction>) => {
@@ -31,6 +32,7 @@ export const fetchListItems =
       STORIES_PER_PAGE * (page - 1),
       STORIES_PER_PAGE * page
     );
+
     const stories = await Promise.all(
       paginatedStoriesList.map(
         (id: number): Promise<ItemInterface> =>
@@ -38,6 +40,10 @@ export const fetchListItems =
             fetchStory(id).then((response) => resolve(response.data));
           })
       )
+    );
+
+    stories.forEach(
+      (item) => item.url && (item.url = extractDomainFromUrl(item.url))
     );
 
     dispatch({
