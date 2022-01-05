@@ -10,13 +10,19 @@ type Props = {
 
 const Pagination: React.FC<Props> = ({ currentPage, pagesCount, setPage }) => (
   <Wrapper>
-    <Arrow onClick={() => currentPage !== 1 && setPage(currentPage - 1)}>
+    <Arrow
+      disabled={currentPage === 1}
+      onClick={() => currentPage !== 1 && setPage(currentPage - 1)}
+    >
       {'<--'}
     </Arrow>
     <CurrentPage>
-      {currentPage}/{pagesCount}
+      {currentPage}/{pagesCount ?? '1'}
     </CurrentPage>
-    <Arrow onClick={() => pagesCount > currentPage && setPage(currentPage + 1)}>
+    <Arrow
+      disabled={pagesCount <= currentPage}
+      onClick={() => pagesCount > currentPage && setPage(currentPage + 1)}
+    >
       {'-->'}
     </Arrow>
   </Wrapper>

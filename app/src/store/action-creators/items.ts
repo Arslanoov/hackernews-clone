@@ -16,7 +16,7 @@ export const fetchList =
     dispatch({
       type: ItemsActionType.SET_LIST,
       payload: {
-        list: StoryListsTypes.Top,
+        list: type,
         listItems: storiesList,
       },
     });

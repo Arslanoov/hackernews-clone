@@ -13,29 +13,28 @@ import Pagination from 'components/common/pagination/Pagination';
 
 import { FullContent } from 'components/styled/content';
 
-const Home = () => {
+const NewStories = () => {
   const [page, setPage] = useState<number>(1);
 
   const itemsList = useSelector(({ items }) => items?.items as ItemInterface[]);
   // TODO: Add reselect
   const totalCount = useSelector(
-    ({ items }) => items?.lists?.top.length as number
+    ({ items }) => items?.lists?.new.length as number
   );
 
   const { fetchList, fetchListItems } = useActions();
 
   useEffect(() => {
     async function fetchListAndItems() {
-      await fetchList(StoryListsTypes.Top);
-      await fetchListItems(StoryListsTypes.Top, page);
+      await fetchList(StoryListsTypes.New);
+      await fetchListItems(StoryListsTypes.New, page);
     }
     fetchListAndItems();
   }, []);
 
   useEffect(() => {
-    console.log(itemsList);
     if (itemsList.length !== 0) {
-      fetchListItems(StoryListsTypes.Top, page);
+      fetchListItems(StoryListsTypes.New, page);
     }
   }, [page]);
 
@@ -55,4 +54,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default NewStories;

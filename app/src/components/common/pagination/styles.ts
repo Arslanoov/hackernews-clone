@@ -10,13 +10,17 @@ export const Wrapper = styled.div`
   background-color: #fff;
 `;
 
-export const Arrow = styled.div`
+type ArrowProps = {
+  disabled: boolean;
+};
+
+export const Arrow = styled.div<ArrowProps>`
   font-size: 2rem;
 
   user-select: none;
 
   &:hover {
-    cursor: pointer;
+    ${(props) => !props.disabled && 'cursor: pointer;'}
   }
 `;
 

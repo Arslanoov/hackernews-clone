@@ -12,11 +12,14 @@ type Props = {
 
 const CardList: React.FC<Props> = ({ items }) => (
   <List>
-    {items.map((item) => (
-      <ListItem key={item.id}>
-        <CardItem item={item} />
-      </ListItem>
-    ))}
+    {items.map(
+      (item) =>
+        item && (
+          <ListItem key={item.id}>
+            <CardItem item={item} />
+          </ListItem>
+        )
+    )}
   </List>
 );
 

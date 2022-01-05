@@ -23,7 +23,7 @@ const CardItem: React.FC<Props> = ({ item }) => (
     <div>
       <Row>
         <Title>{item.title}</Title>
-        <Source href={item.url}>({item.url})</Source>
+        {item.url && <Source href={item.url}>({item.url})</Source>}
       </Row>
       <Row>
         <Author>By {item.by}</Author>
