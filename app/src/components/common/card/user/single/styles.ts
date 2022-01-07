@@ -16,6 +16,8 @@ export const Title = styled.h2`
 
 export const About = styled.p`
   margin: 1rem 0;
+
+  word-break: break-word;
 `;
 
 export const Links = styled.div`

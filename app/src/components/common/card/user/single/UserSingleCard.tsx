@@ -16,7 +16,7 @@ const UserSingleCard: React.FC<Props> = ({ user }) => (
     <div>Created: {formatTime(user.created)}</div>
     <div>Karma: {user.karma}</div>
 
-    <About>{user.about}</About>
+    <About dangerouslySetInnerHTML={{ __html: user.about ?? '' }} />
 
     <Links>
       <Link

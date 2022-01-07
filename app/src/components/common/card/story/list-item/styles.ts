@@ -24,6 +24,7 @@ export const Score = styled.div`
 
 export const Row = styled.div`
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
 
   margin-bottom: 0.5rem;

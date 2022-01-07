@@ -17,6 +17,7 @@ export const Title = styled.h2`
 
 export const Row = styled.div`
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
 
   font-size: 1.5rem;

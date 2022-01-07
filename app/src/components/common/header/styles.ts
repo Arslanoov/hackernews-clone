@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { NavLink } from 'react-router-dom';
+import { devices } from '../../../utils/media/devices';
 
 export const HeaderContent = styled.header`
   padding: 1.5rem 0;
@@ -38,7 +39,11 @@ export const Nav = styled.ul`
 
 export const NavItem = styled(NavLink)`
   &:not(:last-of-type) {
-    margin-right: 2.5rem;
+    margin-right: 1.2rem;
+
+    @media ${devices.mobile} {
+      margin-right: 2.5rem;
+    }
   }
 
   &.active {
