@@ -11,12 +11,16 @@ import { FullContent } from 'components/styled/content';
 
 const User = () => {
   const params = useParams();
-  const { fetchUser } = useActions();
+  const { fetchUser, clearUser } = useActions();
 
   const user = useSelector((state) => state.user?.current);
 
   useEffect(() => {
     fetchUser(params.username ?? '');
+
+    return () => {
+      clearUser();
+    };
   }, [params.username]);
 
   return (
