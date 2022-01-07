@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
+  padding: 1.5rem 0;
+
+  border-bottom: 0.1rem solid rgba(130, 130, 130, 0.3);
+
   font-size: 1.3rem;
 `;
 

@@ -16,7 +16,7 @@ const CommentItemCard: React.FC<Props> = ({ comment, storyId }) => (
       <div>5 hours ago</div>
     </HeaderRow>
     <Content dangerouslySetInnerHTML={{ __html: comment.text ?? '' }} />
-    {comment.kids.length > 0 && comment.parent === storyId && (
+    {comment.kids && comment.kids.length > 0 && comment.parent === storyId && (
       <Replies>{comment.kids.length} replies collapsed</Replies>
     )}
   </Wrapper>

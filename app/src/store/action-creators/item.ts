@@ -5,8 +5,10 @@ import { ItemActionType } from 'store/action-types/item';
 
 import { fetchItem } from 'utils/api';
 
+import { COMMENTS_LIMIT } from 'config/pagination';
+
 import { StoryInterface } from 'types/story';
-import { CommentInterface } from '../../types/comment';
+import { CommentInterface } from 'types/comment';
 
 export const fetchItemWithComments =
   (id: number) => async (dispatch: Dispatch<ItemAction>) => {
@@ -18,9 +20,13 @@ export const fetchItemWithComments =
       },
     });
 
+    const commentsPaginated = story.kids
+      ? story.kids.slice(0, COMMENTS_LIMIT)
+      : [];
+
     // First depth level comments
     const comments = await Promise.all(
-      story.kids.map(
+      commentsPaginated.map(
         (kid: number): Promise<CommentInterface> =>
           new Promise((resolve) => {
             fetchItem(kid).then((response) =>

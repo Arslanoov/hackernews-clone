@@ -11,6 +11,6 @@ export interface ItemInterface {
   title: string;
   type: ItemTypes;
   descendants: number;
-  kids: number[];
+  kids?: number[];
   url?: string;
 }
