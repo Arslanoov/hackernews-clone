@@ -40,10 +40,14 @@ const StoryItemCard: React.FC<Props> = ({ story }) => (
         <Author to={`/user/${story.by}`}>
           By <AuthorUnderline>{story.by}</AuthorUnderline>
         </Author>
-        <Line />
-        <SourceLink to={`/story/${story.id}`}>
-          <CommentsCount>{story.descendants} comments</CommentsCount>
-        </SourceLink>
+        {(story.descendants || story.descendants === 0) && (
+          <>
+            <Line />
+            <SourceLink to={`/story/${story.id}`}>
+              <CommentsCount>{story.descendants} comments</CommentsCount>
+            </SourceLink>
+          </>
+        )}
       </Row>
     </div>
   </Wrapper>

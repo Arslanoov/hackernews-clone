@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Navigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import { useActions } from 'hooks/useActions';
 import { useSelector } from 'hooks/useSelector';
@@ -17,9 +17,6 @@ import { FullContent } from 'components/styled/content';
 const StoriesList = () => {
   const params = useParams();
   const type = params.type as StoryListsTypes;
-  if (!type || !Object.values(StoryListsTypes).includes(type)) {
-    return <Navigate to="/404" />;
-  }
 
   const [page, setPage] = useState<number>(1);
 
@@ -28,7 +25,7 @@ const StoriesList = () => {
   );
   // TODO: Add reselect
   const totalCount = useSelector(
-    ({ stories }) => stories?.lists[type].length as number
+    ({ stories }) => stories?.lists[type]?.length as number
   );
 
   const { fetchStoriesList, fetchListItems } = useActions();
@@ -43,7 +40,7 @@ const StoriesList = () => {
   }, [params.type]);
 
   useEffect(() => {
-    if (itemsList.length !== 0) {
+    if (itemsList?.length !== 0) {
       fetchListItems(type, page);
     }
   }, [page]);
