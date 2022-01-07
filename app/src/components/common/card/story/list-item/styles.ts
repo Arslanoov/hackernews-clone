@@ -27,8 +27,6 @@ export const Row = styled.div`
   align-items: center;
 
   margin-bottom: 0.5rem;
-
-  color: #000;
 `;
 
 export const Title = styled.h3`
@@ -36,6 +34,8 @@ export const Title = styled.h3`
   align-items: center;
 
   margin-right: 0.5rem;
+
+  color: #000;
 
   font-size: 1.5rem;
   font-weight: 400;
