@@ -9,6 +9,8 @@ import UserSingleCard from 'components/common/card/user/single/UserSingleCard';
 
 import { FullContent } from 'components/styled/content';
 
+import { Wrapper } from './styles';
+
 const User = () => {
   const params = useParams();
   const { fetchUser, clearUser } = useActions();
@@ -26,7 +28,9 @@ const User = () => {
   return (
     <MainLayout>
       <div className="container">
-        <FullContent>{user && <UserSingleCard user={user} />}</FullContent>
+        <FullContent>
+          <Wrapper>{user && <UserSingleCard user={user} />}</Wrapper>
+        </FullContent>
       </div>
     </MainLayout>
   );
