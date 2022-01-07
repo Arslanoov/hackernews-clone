@@ -8,6 +8,7 @@ import {
   Title,
   Source,
   Author,
+  AuthorUnderline,
   Line,
   CommentsCount,
   Row,
@@ -36,7 +37,9 @@ const StoryItemCard: React.FC<Props> = ({ story }) => (
         </SourceLink>
       )}
       <Row>
-        <Author>By {story.by}</Author>
+        <Author to={`/user/${story.by}`}>
+          By <AuthorUnderline>{story.by}</AuthorUnderline>
+        </Author>
         <Line />
         <SourceLink to={`/story/${story.id}`}>
           <CommentsCount>{story.descendants} comments</CommentsCount>

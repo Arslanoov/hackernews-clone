@@ -14,7 +14,7 @@ type Props = {
 const CommentItemCard: React.FC<Props> = ({ comment, storyId }) => (
   <Wrapper>
     <HeaderRow>
-      <Author>{comment.by}</Author>
+      <Author to={`/user/${comment.id}`}>{comment.by}</Author>
       <div>{formatTime(comment.time)}</div>
     </HeaderRow>
     <Content dangerouslySetInnerHTML={{ __html: comment.text ?? '' }} />

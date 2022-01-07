@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { Link } from 'react-router-dom';
+
 export const Wrapper = styled.div`
   padding: 1.5rem 0;
 
@@ -15,10 +17,12 @@ export const HeaderRow = styled.div`
   color: #828282;
 `;
 
-export const Author = styled.div`
+export const Author = styled(Link)`
   margin-right: 0.5rem;
 
   text-decoration: underline;
+
+  color: #828282;
 `;
 
 export const Content = styled.div`

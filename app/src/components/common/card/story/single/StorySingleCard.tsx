@@ -15,7 +15,7 @@ const StorySingleCard: React.FC<Props> = ({ story }) => (
     <Title>{story.title}</Title>
     <Row>
       <Score>{story.score} points</Score>| by
-      <Author>{story.by}</Author>
+      <Author to={`/user/${story.by}`}>{story.by}</Author>
       <Time>{formatTime(story.time)}</Time>
     </Row>
   </Wrapper>

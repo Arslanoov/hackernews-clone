@@ -27,6 +27,8 @@ export const Row = styled.div`
   align-items: center;
 
   margin-bottom: 0.5rem;
+
+  color: #000;
 `;
 
 export const Title = styled.h3`
@@ -51,10 +53,14 @@ export const Description = styled.div`
   color: #828282;
 `;
 
-export const Author = styled.div`
+export const Author = styled(Link)`
   margin-right: 0.6rem;
 
   color: #828282;
+`;
+
+export const AuthorUnderline = styled.span`
+  text-decoration: underline;
 `;
 
 export const Line = styled.div`
