@@ -63,3 +63,10 @@ export const fetchListItems =
       },
     });
   };
+
+export const clearStoriesList =
+  () => async (dispatch: Dispatch<StoriesAction>) => {
+    dispatch({
+      type: StoriesActionType.CLEAR_LIST,
+    });
+  };

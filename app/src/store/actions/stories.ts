@@ -24,4 +24,12 @@ export interface SetPageAction {
   };
 }
 
-export type StoriesAction = SetStoriesAction | SetListAction | SetPageAction;
+export interface ClearListAction {
+  type: StoriesActionType.CLEAR_LIST;
+}
+
+export type StoriesAction =
+  | SetStoriesAction
+  | SetListAction
+  | SetPageAction
+  | ClearListAction;

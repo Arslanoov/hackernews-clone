@@ -38,6 +38,10 @@ const reducer = produce(
         state.stories = action.payload.items;
         return state;
 
+      case StoriesActionType.CLEAR_LIST:
+        state.stories = [];
+        return state;
+
       default:
         return state;
     }

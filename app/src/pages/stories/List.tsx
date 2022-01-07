@@ -28,7 +28,7 @@ const StoriesList = () => {
     ({ stories }) => stories?.lists[type]?.length as number
   );
 
-  const { fetchStoriesList, fetchListItems } = useActions();
+  const { fetchStoriesList, fetchListItems, clearStoriesList } = useActions();
 
   useEffect(() => {
     async function fetchListAndItems() {
@@ -37,6 +37,10 @@ const StoriesList = () => {
       await fetchListItems(type, 1);
     }
     fetchListAndItems();
+
+    return () => {
+      clearStoriesList();
+    };
   }, [params.type]);
 
   useEffect(() => {
