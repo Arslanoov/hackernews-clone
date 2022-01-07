@@ -9,6 +9,7 @@ export interface ItemInterface {
   by: string;
   score: number;
   title: string;
+  time: number;
   type: ItemTypes;
   descendants: number;
   kids?: number[];

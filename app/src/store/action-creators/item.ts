@@ -43,3 +43,10 @@ export const fetchItemWithComments =
       },
     });
   };
+
+export const clearItemWithComments =
+  () => async (dispatch: Dispatch<ItemAction>) => {
+    dispatch({
+      type: ItemActionType.CLEAR_ITEM_WITH_COMMENTS,
+    });
+  };

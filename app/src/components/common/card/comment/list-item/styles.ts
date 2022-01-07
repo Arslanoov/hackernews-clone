@@ -23,6 +23,10 @@ export const Author = styled.div`
 
 export const Content = styled.div`
   margin: 1rem 0;
+
+  a {
+    color: #0077ff;
+  }
 `;
 
 export const Replies = styled.div`

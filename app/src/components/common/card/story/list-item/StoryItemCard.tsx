@@ -25,10 +25,7 @@ const StoryItemCard: React.FC<Props> = ({ story }) => (
       {story.url ? (
         <Source href={story.url} target="_blank">
           <Row>
-            <Title>{story.title}</Title>
-            <Source href={story.url} target="_blank">
-              ({story.url})
-            </Source>
+            <Title>{story.title}</Title>({story.domainUrl})
           </Row>
         </Source>
       ) : (
@@ -40,12 +37,10 @@ const StoryItemCard: React.FC<Props> = ({ story }) => (
       )}
       <Row>
         <Author>By {story.by}</Author>
-        {story.descendants && (
-          <>
-            <Line />
-            <CommentsCount>{story.descendants} comments</CommentsCount>
-          </>
-        )}
+        <Line />
+        <SourceLink to={`/story/${story.id}`}>
+          <CommentsCount>{story.descendants} comments</CommentsCount>
+        </SourceLink>
       </Row>
     </div>
   </Wrapper>

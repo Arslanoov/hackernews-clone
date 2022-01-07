@@ -45,7 +45,8 @@ export const fetchListItems =
     );
 
     stories.forEach(
-      (item) => item.url && (item.url = removeUriFromUrl(item.url))
+      (item: StoryInterface) =>
+        item.url && (item.domainUrl = removeUriFromUrl(item.url))
     );
 
     dispatch({

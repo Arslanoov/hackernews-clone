@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { formatTime } from 'utils/helpers/time';
+
 import { ItemInterface } from 'types/item';
 
 import { Wrapper, Title, Row, Score, Author, Time } from './styles';
@@ -14,7 +16,7 @@ const StorySingleCard: React.FC<Props> = ({ story }) => (
     <Row>
       <Score>{story.score} points</Score>| by
       <Author>{story.by}</Author>
-      <Time>6 hours ago</Time>
+      <Time>{formatTime(story.time)}</Time>
     </Row>
   </Wrapper>
 );

@@ -12,6 +12,8 @@ export const Wrapper = styled.div`
 `;
 
 export const Score = styled.div`
+  min-width: 3rem;
+
   margin-right: 2rem;
 
   font-size: 1.5rem;

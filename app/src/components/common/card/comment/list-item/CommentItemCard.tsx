@@ -2,6 +2,8 @@ import React from 'react';
 
 import { CommentInterface } from 'types/comment';
 
+import { formatTime } from 'utils/helpers/time';
+
 import { Wrapper, HeaderRow, Author, Content, Replies } from './styles';
 
 type Props = {
@@ -13,7 +15,7 @@ const CommentItemCard: React.FC<Props> = ({ comment, storyId }) => (
   <Wrapper>
     <HeaderRow>
       <Author>{comment.by}</Author>
-      <div>5 hours ago</div>
+      <div>{formatTime(comment.time)}</div>
     </HeaderRow>
     <Content dangerouslySetInnerHTML={{ __html: comment.text ?? '' }} />
     {comment.kids && comment.kids.length > 0 && comment.parent === storyId && (

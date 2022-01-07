@@ -15,13 +15,17 @@ import { FullContent } from 'components/styled/content';
 
 const Story = () => {
   const params = useParams();
-  const { fetchItemWithComments } = useActions();
+  const { fetchItemWithComments, clearItemWithComments } = useActions();
 
   const story = useSelector((state) => state.item?.story);
   const comments = useSelector((state) => state.item?.comments);
 
   useEffect(() => {
     fetchItemWithComments(Number(params.id));
+
+    return () => {
+      clearItemWithComments();
+    };
   }, []);
 
   return (
