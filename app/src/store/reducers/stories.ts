@@ -1,12 +1,12 @@
 import produce from 'immer';
 
-import { ItemsAction } from 'store/actions/items';
-import { ItemsActionType } from 'store/action-types/items';
+import { StoriesAction } from 'store/actions/stories';
+import { StoriesActionType } from 'store/action-types/stories';
 
-import { ItemInterface } from 'types/item';
+import { StoryInterface } from 'types/story';
 
-interface ItemsState {
-  items: ItemInterface[];
+interface StoriesState {
+  stories: StoryInterface[];
   lists: {
     top: number[];
     new: number[];
@@ -16,8 +16,8 @@ interface ItemsState {
   };
 }
 
-const initialState: ItemsState = {
-  items: [],
+const initialState: StoriesState = {
+  stories: [],
   lists: {
     top: [],
     new: [],
@@ -28,14 +28,14 @@ const initialState: ItemsState = {
 };
 
 const reducer = produce(
-  (state: ItemsState = initialState, action: ItemsAction) => {
+  (state: StoriesState = initialState, action: StoriesAction) => {
     switch (action.type) {
-      case ItemsActionType.SET_LIST:
+      case StoriesActionType.SET_LIST:
         state.lists[action.payload.list] = action.payload.listItems;
         return state;
 
-      case ItemsActionType.SET_ITEMS_LIST:
-        state.items = action.payload.items;
+      case StoriesActionType.SET_STORIES_LIST:
+        state.stories = action.payload.items;
         return state;
 
       default:

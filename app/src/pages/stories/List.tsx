@@ -6,10 +6,10 @@ import { useSelector } from 'hooks/useSelector';
 
 import { STORIES_PER_PAGE } from 'config/pagination';
 
-import { ItemInterface, StoryListsTypes } from 'types/item';
+import { StoryInterface, StoryListsTypes } from 'types/story';
 
 import MainLayout from 'layouts/main/MainLayout';
-import CardList from 'components/common/card/list/CardList';
+import StoryListCard from 'components/common/card/story/list/StoryListCard';
 import Pagination from 'components/common/pagination/Pagination';
 
 import { FullContent } from 'components/styled/content';
@@ -23,18 +23,20 @@ const StoriesList = () => {
 
   const [page, setPage] = useState<number>(1);
 
-  const itemsList = useSelector(({ items }) => items?.items as ItemInterface[]);
+  const itemsList = useSelector(
+    ({ stories }) => stories?.stories as StoryInterface[]
+  );
   // TODO: Add reselect
   const totalCount = useSelector(
-    ({ items }) => items?.lists[type].length as number
+    ({ stories }) => stories?.lists[type].length as number
   );
 
-  const { fetchList, fetchListItems } = useActions();
+  const { fetchStoriesList, fetchListItems } = useActions();
 
   useEffect(() => {
     async function fetchListAndItems() {
       setPage(1);
-      await fetchList(type);
+      await fetchStoriesList(type);
       await fetchListItems(type, 1);
     }
     fetchListAndItems();
@@ -55,7 +57,7 @@ const StoriesList = () => {
             currentPage={page}
             setPage={setPage}
           />
-          <CardList items={itemsList} />
+          <StoryListCard stories={itemsList} />
         </FullContent>
       </div>
     </MainLayout>

@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 
-import itemsReducer from './items';
+import storiesReducer from './stories';
+import itemReducer from './item';
 
 const reducers = combineReducers({
-  items: itemsReducer,
+  stories: storiesReducer,
+  item: itemReducer,
 });
 
 export default reducers;

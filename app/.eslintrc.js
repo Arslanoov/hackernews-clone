@@ -21,6 +21,7 @@ module.exports = {
 
     '@typescript-eslint/default-param-last': 0,
     'import/prefer-default-export': 0,
+    'react/no-danger': 0,
     'no-param-reassign': 0,
     'no-return-assign': 0,
     'no-plusplus': 0,

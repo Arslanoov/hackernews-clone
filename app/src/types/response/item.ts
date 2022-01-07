@@ -1,6 +1,10 @@
 import { AxiosResponse } from 'axios';
 
-import { ItemInterface, Stories } from 'types/item';
+import { StoryInterface, Stories } from 'types/story';
+import { ItemInterface } from 'types/item';
+import { CommentInterface } from 'types/comment';
 
 export type StoriesResponse = Promise<AxiosResponse<Stories>>;
-export type StoryResponse = Promise<AxiosResponse<ItemInterface>>;
+export type ItemResponse = Promise<
+  AxiosResponse<ItemInterface | CommentInterface | StoryInterface>
+>;

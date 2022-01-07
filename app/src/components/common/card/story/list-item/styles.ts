@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { Link } from 'react-router-dom';
+
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
@@ -36,6 +38,10 @@ export const Title = styled.h3`
 `;
 
 export const Source = styled.a`
+  color: #828282;
+`;
+
+export const SourceLink = styled(Link)`
   color: #828282;
 `;
 
