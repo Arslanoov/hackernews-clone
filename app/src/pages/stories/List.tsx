@@ -4,9 +4,14 @@ import { useParams } from 'react-router-dom';
 import { useActions } from 'hooks/useActions';
 import { useSelector } from 'hooks/useSelector';
 
+import {
+  storiesSelector,
+  storiesTotalCountSelector,
+} from 'store/selectors/stories';
+
 import { STORIES_PER_PAGE } from 'config/pagination';
 
-import { StoryInterface, StoryListsTypes } from 'types/story';
+import { StoryListsTypes } from 'types/story';
 
 import MainLayout from 'layouts/main/MainLayout';
 import StoryListCard from 'components/common/card/story/list/StoryListCard';
@@ -20,12 +25,9 @@ const StoriesList = () => {
 
   const [page, setPage] = useState<number>(1);
 
-  const itemsList = useSelector(
-    ({ stories }) => stories?.stories as StoryInterface[]
-  );
-  // TODO: Add reselect
-  const totalCount = useSelector(
-    ({ stories }) => stories?.lists[type]?.length as number
+  const itemsList = useSelector(storiesSelector);
+  const totalCount = useSelector((state) =>
+    storiesTotalCountSelector(type)(state)
   );
 
   const { fetchStoriesList, fetchListItems, clearStoriesList } = useActions();

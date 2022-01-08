@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import { useActions } from 'hooks/useActions';
 import { useSelector } from 'hooks/useSelector';
 
+import { currentUserSelector } from 'store/selectors/user';
+
 import MainLayout from 'layouts/main/MainLayout';
 import UserSingleCard from 'components/common/card/user/single/UserSingleCard';
 
@@ -15,7 +17,7 @@ const User = () => {
   const params = useParams();
   const { fetchUser, clearUser } = useActions();
 
-  const user = useSelector((state) => state.user?.current);
+  const user = useSelector(currentUserSelector);
 
   useEffect(() => {
     fetchUser(params.username ?? '');
