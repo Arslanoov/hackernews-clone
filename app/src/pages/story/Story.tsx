@@ -13,6 +13,7 @@ import MainLayout from 'layouts/main/MainLayout';
 import StorySingleCard from 'components/common/card/story/single/StorySingleCard';
 import CommentListCard from 'components/common/card/comment/list/CommentListCard';
 
+import { Container } from 'components/styled/container';
 import { FullContent } from 'components/styled/content';
 
 const Story = () => {
@@ -32,7 +33,7 @@ const Story = () => {
 
   return (
     <MainLayout>
-      <div className="container">
+      <Container>
         <FullContent>
           {story && (
             <>
@@ -44,7 +45,7 @@ const Story = () => {
             </>
           )}
         </FullContent>
-      </div>
+      </Container>
     </MainLayout>
   );
 };

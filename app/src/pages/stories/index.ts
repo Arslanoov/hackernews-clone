@@ -1,3 +1,3 @@
-import List from './List';
+import Stories from './Stories';
 
-export default List;
+export default Stories;

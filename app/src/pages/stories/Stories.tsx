@@ -17,10 +17,10 @@ import MainLayout from 'layouts/main/MainLayout';
 import StoryListCard from 'components/common/card/story/list/StoryListCard';
 import Pagination from 'components/common/pagination/Pagination';
 
-import { FullContent } from 'components/styled/content';
 import { Container } from 'components/styled/container';
+import { FullContent } from 'components/styled/content';
 
-const StoriesList = () => {
+const Stories = () => {
   const params = useParams();
   const type = params.type as StoryListsTypes;
 
@@ -68,4 +68,4 @@ const StoriesList = () => {
   );
 };
 
-export default StoriesList;
+export default Stories;
