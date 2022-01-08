@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { NavLink } from 'react-router-dom';
 
-import { devices } from 'utils/media/devices';
+import { devices } from 'components/styled/mixins/devices';
 
 export const HeaderContent = styled.header`
   padding: 1.5rem 0;

@@ -11,7 +11,7 @@ import StoriesList from 'pages/stories';
 import Story from 'pages/story';
 import User from 'pages/user';
 
-import 'assets/styles/main.scss';
+import 'assets/styles/main.css';
 
 const App = () => (
   <Router>

@@ -1,12 +1,4 @@
-export const sizes = {
-  mobileSm: '325px',
-  mobile: '375px',
-  tablet: '768px',
-  tabletHor: '1024px',
-  desktopSm: '1280px',
-  desktopMd: '1440px',
-  fullHd: '1920px',
-};
+import { sizes } from 'components/styled/vars/sizes';
 
 export const devices = {
   mobileSm: `(min-width: ${sizes.mobileSm})`,

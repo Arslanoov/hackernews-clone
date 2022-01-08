@@ -18,6 +18,7 @@ import StoryListCard from 'components/common/card/story/list/StoryListCard';
 import Pagination from 'components/common/pagination/Pagination';
 
 import { FullContent } from 'components/styled/content';
+import { Container } from 'components/styled/container';
 
 const StoriesList = () => {
   const params = useParams();
@@ -53,7 +54,7 @@ const StoriesList = () => {
 
   return (
     <MainLayout>
-      <div className="container">
+      <Container>
         <FullContent>
           <Pagination
             pagesCount={Math.floor(totalCount / STORIES_PER_PAGE)}
@@ -62,7 +63,7 @@ const StoriesList = () => {
           />
           <StoryListCard stories={itemsList} />
         </FullContent>
-      </div>
+      </Container>
     </MainLayout>
   );
 };
