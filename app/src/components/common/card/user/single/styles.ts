@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
+import { grey, white } from 'components/styled/vars/colors';
+
 export const Wrapper = styled.div`
   padding: 1.5rem 3rem;
 
   font-size: 1.5rem;
 
-  background-color: #fff;
+  background-color: ${white};
 `;
 
 export const Title = styled.h2`
@@ -26,7 +28,7 @@ export const Links = styled.div`
 `;
 
 export const Link = styled.a`
-  color: #828282;
+  color: ${grey};
 
   text-decoration: underline;
 

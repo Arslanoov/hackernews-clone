@@ -2,10 +2,18 @@ import styled from 'styled-components';
 
 import { Link } from 'react-router-dom';
 
+import {
+  greyClear,
+  blue,
+  grey,
+  whiteDarker,
+} from 'components/styled/vars/colors';
+import { pointerOnHover } from 'components/styled/mixins/cursor';
+
 export const Wrapper = styled.div`
   padding: 1.5rem 0;
 
-  border-bottom: 0.1rem solid rgba(130, 130, 130, 0.3);
+  border-bottom: 0.1rem solid ${greyClear};
 
   font-size: 1.3rem;
 `;
@@ -14,7 +22,7 @@ export const HeaderRow = styled.div`
   display: flex;
   align-items: center;
 
-  color: #828282;
+  color: ${grey};
 `;
 
 export const Author = styled(Link)`
@@ -22,14 +30,14 @@ export const Author = styled(Link)`
 
   text-decoration: underline;
 
-  color: #828282;
+  color: ${grey};
 `;
 
 export const Content = styled.div`
   margin: 1rem 0;
 
   a {
-    color: #0077ff;
+    color: ${blue};
   }
 `;
 
@@ -40,12 +48,10 @@ export const Replies = styled.div`
 
   font-size: 1.2rem;
 
-  background-color: #fffbf2;
-  color: #828282;
+  background-color: ${whiteDarker};
+  color: ${grey};
 
   border-radius: 0.4rem;
 
-  &:hover {
-    cursor: pointer;
-  }
+  ${pointerOnHover}
 `;

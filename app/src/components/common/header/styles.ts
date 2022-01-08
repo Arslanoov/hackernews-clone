@@ -4,10 +4,13 @@ import { NavLink } from 'react-router-dom';
 
 import { devices } from 'components/styled/mixins/devices';
 
+import { orange, white } from 'components/styled/vars/colors';
+import { light, normal } from 'components/styled/vars/font';
+
 export const HeaderContent = styled.header`
   padding: 1.5rem 0;
 
-  background-color: #fd6a0b;
+  background-color: ${orange};
 `;
 
 export const Wrapper = styled.div`
@@ -21,7 +24,7 @@ export const Logo = styled.img`
 
   margin-right: 3.5rem;
 
-  border: 0.1rem solid #fff;
+  border: 0.1rem solid ${white};
 
   user-select: none;
 `;
@@ -31,9 +34,9 @@ export const Nav = styled.ul`
   align-items: center;
 
   font-size: 1.6rem;
-  font-weight: 300;
+  font-weight: ${light};
 
-  color: #fff;
+  color: ${white};
 
   list-style: none;
 `;
@@ -48,6 +51,6 @@ export const NavItem = styled(NavLink)`
   }
 
   &.active {
-    font-weight: 400;
+    font-weight: ${normal};
   }
 `;

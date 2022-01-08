@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 
+import { white } from 'components/styled/vars/colors';
+import { pointerOnHover } from 'components/styled/mixins/cursor';
+
 export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -7,7 +10,7 @@ export const Wrapper = styled.div`
 
   padding: 1.5rem 0;
 
-  background-color: #fff;
+  background-color: ${white};
 `;
 
 type ArrowProps = {
@@ -19,9 +22,7 @@ export const Arrow = styled.div<ArrowProps>`
 
   user-select: none;
 
-  &:hover {
-    ${({ disabled }) => !disabled && 'cursor: pointer;'}
-  }
+  ${({ disabled }) => !disabled && pointerOnHover}
 `;
 
 export const CurrentPage = styled.div`

@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 import { Link } from 'react-router-dom';
 
+import { black, grey, orange } from 'components/styled/vars/colors';
+import { bold, normal } from 'components/styled/vars/font';
+
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
@@ -17,9 +20,9 @@ export const Score = styled.div`
   margin-right: 2rem;
 
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: ${bold};
 
-  color: #fd6a0b;
+  color: ${orange};
 `;
 
 export const Row = styled.div`
@@ -36,28 +39,28 @@ export const Title = styled.h3`
 
   margin-right: 0.5rem;
 
-  color: #000;
+  color: ${black};
 
   font-size: 1.5rem;
-  font-weight: 400;
+  font-weight: ${normal};
 `;
 
 export const Source = styled.a`
-  color: #828282;
+  color: ${grey};
 `;
 
 export const SourceLink = styled(Link)`
-  color: #828282;
+  color: ${grey};
 `;
 
 export const Description = styled.div`
-  color: #828282;
+  color: ${grey};
 `;
 
 export const Author = styled(Link)`
   margin-right: 0.6rem;
 
-  color: #828282;
+  color: ${grey};
 `;
 
 export const AuthorUnderline = styled.span`
@@ -68,7 +71,7 @@ export const Line = styled.div`
   height: 1.4rem;
   width: 0.1rem;
 
-  background-color: #828282;
+  background-color: ${grey};
 `;
 
 export const CommentsCount = styled.div`
@@ -76,5 +79,5 @@ export const CommentsCount = styled.div`
 
   text-decoration: underline;
 
-  color: #828282;
+  color: ${grey};
 `;
