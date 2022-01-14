@@ -1,7 +1,7 @@
 const SECONDS_IN_DAY = 86400;
 const SECONDS_IN_HOUR = 3600;
 
-const pluralize = (time: number, label: string) =>
+export const pluralize = (time: number, label: string) =>
   time === 1 ? time + label : `${time + label}s`;
 
 export const formatTime = (time: number) => {

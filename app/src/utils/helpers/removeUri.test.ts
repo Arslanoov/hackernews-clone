@@ -8,6 +8,9 @@ describe('removeUri function', () => {
     expect(removeUriFromUrl('https://google.com/someuri')).toBe(
       'https://google.com'
     );
+  });
+
+  it('returns empty string on error', () => {
     expect(removeUriFromUrl('not_url_at_all')).toBe('');
   });
 });
