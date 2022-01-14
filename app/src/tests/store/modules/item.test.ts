@@ -1,12 +1,17 @@
 import store from 'store';
 import { ItemActionType } from 'store/action-types/item';
 
+import * as api from 'utils/api';
+
 import { storyMock as story } from 'tests/dummy/story';
 
-import { StoryInterface } from 'types/story';
-import { CommentInterface } from '../../../types/comment';
+import { fetchItemWithComments } from 'store/action-creators/item';
 
-describe('Item store module', () => {
+import { StoryInterface } from 'types/story';
+import { CommentInterface } from 'types/comment';
+import { ItemResponse } from 'types/response/item';
+
+describe('Item sync actions', () => {
   it('sets item', () => {
     store.dispatch({
       type: ItemActionType.SET_ITEM,
@@ -35,5 +40,22 @@ describe('Item store module', () => {
 
     expect(store.getState().item?.story).toBeNull();
     expect(store.getState().item?.comments).toStrictEqual([]);
+  });
+});
+
+describe('Item async actions', () => {
+  it('fetch item with comments', async () => {
+    const itemSpy = jest.spyOn(api, 'fetchItem').mockResolvedValue({
+      data: {
+        id: 1,
+        kids: [1, 1, 1],
+      },
+    } as unknown as ItemResponse);
+
+    // TODO: Remove ts ignore
+    // @ts-ignore
+    await store.dispatch(fetchItemWithComments(1));
+
+    expect(itemSpy).toBeCalledTimes(4);
   });
 });
