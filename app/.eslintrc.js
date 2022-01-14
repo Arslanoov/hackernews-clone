@@ -10,7 +10,6 @@ module.exports = {
   },
   rules: {
     'prettier/prettier': 'error',
-
     'react/function-component-definition': [
       2,
       {
@@ -20,6 +19,7 @@ module.exports = {
     ],
 
     '@typescript-eslint/default-param-last': 0,
+    'import/no-extraneous-dependencies': 0,
     'import/prefer-default-export': 0,
     'react/no-danger': 0,
     'no-bitwise': 0,

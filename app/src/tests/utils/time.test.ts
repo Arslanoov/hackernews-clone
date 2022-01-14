@@ -1,4 +1,4 @@
-import { pluralize, formatTime } from './time';
+import { pluralize, formatTime } from 'utils/helpers/time';
 
 describe('time pluralize function', () => {
   it('works', () => {

@@ -1,4 +1,4 @@
-import { removeUriFromUrl } from './removeUri';
+import { removeUriFromUrl } from 'utils/helpers/removeUri';
 
 describe('removeUri function', () => {
   it('removes uri from url', () => {
