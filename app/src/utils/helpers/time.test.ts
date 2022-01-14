@@ -1,4 +1,4 @@
-import { pluralize } from './time';
+import { pluralize, formatTime } from './time';
 
 describe('time pluralize function', () => {
   it('works', () => {
@@ -8,4 +8,10 @@ describe('time pluralize function', () => {
   });
 });
 
-describe('time format function', () => {});
+describe('time format function', () => {
+  it('works', () => {
+    expect(formatTime(1641811874, 1642175474_000)).toBe('4 days ago');
+    expect(formatTime(1642146711, 1642175474_000)).toBe('7 hours ago');
+    expect(formatTime(1641379919, 1642175474_000)).toBe('9 days ago');
+  });
+});
