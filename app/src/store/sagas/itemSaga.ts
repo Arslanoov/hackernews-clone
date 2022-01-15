@@ -25,9 +25,7 @@ function* fetchItemWithCommentsSaga({ payload: { id } }: AnyAction) {
     : [];
 
   // First depth level comments
-  // TODO: Fix
-  // @ts-ignore
-  const comments = yield Promise.all(
+  const comments: CommentInterface[] = yield Promise.all(
     commentsPaginated.map(
       (kid: number): Promise<CommentInterface> =>
         new Promise((resolve) => {

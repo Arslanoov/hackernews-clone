@@ -18,8 +18,7 @@ function* fetchListItems({ payload: { type, page = 1 } }: AnyAction) {
     STORIES_PER_PAGE * page
   );
 
-  // @ts-ignore
-  const stories = yield Promise.all(
+  const stories: StoryInterface[] = yield Promise.all(
     paginatedStoriesList.map(
       (id: number): Promise<StoryInterface> =>
         new Promise<StoryInterface>((resolve) => {
