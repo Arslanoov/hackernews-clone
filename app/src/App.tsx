@@ -6,7 +6,6 @@ import {
   Navigate,
 } from 'react-router-dom';
 
-// TODO: Split pages
 import StoriesList from 'pages/stories';
 import Story from 'pages/story';
 import User from 'pages/user';

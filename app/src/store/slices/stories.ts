@@ -47,7 +47,7 @@ export const fetchStoriesList = createAsyncThunk(
 );
 
 export const fetchListItems = createAsyncThunk(
-  `${SLICE_NAME}/fetchStoriesList`,
+  `${SLICE_NAME}/fetchListItems`,
   async (
     {
       type,
@@ -116,6 +116,8 @@ export const storiesSlice = createSlice({
     },
   },
 });
+
+export const { clearStoriesList } = storiesSlice.actions;
 
 export const storiesSelector = ({ stories }: RootState) =>
   stories?.stories as StoryInterface[];

@@ -47,6 +47,8 @@ export const userSlice = createSlice({
   },
 });
 
+export const { clearItemWithComments } = userSlice.actions;
+
 export const currentUserSelector = ({ user }: RootState) =>
   user?.current as UserInterface | null;
 

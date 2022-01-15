@@ -61,15 +61,17 @@ export const itemSlice = createSlice({
     [fetchItemWithComments.fulfilled.type]: (
       state: ItemState,
       action: PayloadAction<{
-        story: StoryInterface;
+        item: StoryInterface;
         comments: CommentInterface[];
       }>
     ) => {
-      state.story = action.payload.story;
+      state.story = action.payload.item;
       state.comments = action.payload.comments;
     },
   },
 });
+
+export const { clearItemWithComments } = itemSlice.actions;
 
 export const itemSelector = ({ item }: RootState) =>
   item?.story as StoryInterface | null;

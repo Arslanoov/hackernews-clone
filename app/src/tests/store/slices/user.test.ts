@@ -1,10 +1,8 @@
-import store from 'store';
+import { store } from 'store';
 
 import * as api from 'utils/api';
 
-import { fetchUser } from 'store/action-creators/user';
-import { UserActionType } from 'store/action-types/user';
-import { UserAction } from 'store/actions/user';
+import { fetchUser, clearItemWithComments } from 'store/slices/user';
 
 import { UserResponse } from 'types/response/user';
 
@@ -21,7 +19,7 @@ describe('User async actions', () => {
       data: user,
     } as unknown as UserResponse);
 
-    await store.dispatch(fetchUser(user.username) as unknown as UserAction);
+    await store.dispatch(fetchUser(user.username));
 
     expect(userSpy).toBeCalledTimes(1);
     expect(userSpy).toBeCalledWith(user.username);
@@ -34,9 +32,7 @@ describe('User sync actions', () => {
   it('clears user', () => {
     expect(store.getState().user?.current).not.toBeNull();
 
-    store.dispatch({
-      type: UserActionType.CLEAR_USER,
-    });
+    store.dispatch(clearItemWithComments());
 
     expect(store.getState().user?.current).toBeNull();
   });

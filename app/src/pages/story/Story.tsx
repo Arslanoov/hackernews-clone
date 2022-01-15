@@ -1,10 +1,15 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
-import { useActions } from 'hooks/useActions';
 import { useSelector } from 'hooks/useSelector';
 
-import { itemSelector, commentsSelector } from 'store/selectors/item';
+import {
+  fetchItemWithComments,
+  clearItemWithComments,
+  itemSelector,
+  commentsSelector,
+} from 'store/slices/item';
 
 import { ItemInterface } from 'types/item';
 import { CommentsTree } from 'types/comment';
@@ -17,17 +22,17 @@ import { Container } from 'components/styled/container';
 import { FullContent } from 'components/styled/content';
 
 const Story = () => {
+  const dispatch = useDispatch();
   const params = useParams();
-  const { fetchItemWithComments, clearItemWithComments } = useActions();
 
   const story = useSelector(itemSelector);
   const comments = useSelector(commentsSelector);
 
   useEffect(() => {
-    fetchItemWithComments(Number(params.id));
+    dispatch(fetchItemWithComments(Number(params.id)));
 
     return () => {
-      clearItemWithComments();
+      dispatch(clearItemWithComments());
     };
   }, []);
 

@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
-import { useActions } from 'hooks/useActions';
 import { useSelector } from 'hooks/useSelector';
 
 import {
+  clearStoriesList,
+  fetchStoriesList,
+  fetchListItems,
   storiesSelector,
   storiesTotalCountSelector,
-} from 'store/selectors/stories';
+} from 'store/slices/stories';
 
 import { STORIES_PER_PAGE } from 'config/pagination';
 
@@ -21,6 +24,7 @@ import { Container } from 'components/styled/container';
 import { FullContent } from 'components/styled/content';
 
 const Stories = () => {
+  const dispatch = useDispatch();
   const params = useParams();
   const type = params.type as StoryListsTypes;
 
@@ -31,24 +35,32 @@ const Stories = () => {
     storiesTotalCountSelector(type)(state)
   );
 
-  const { fetchStoriesList, fetchListItems, clearStoriesList } = useActions();
-
   useEffect(() => {
     async function fetchListAndItems() {
       setPage(1);
-      await fetchStoriesList(type);
-      await fetchListItems(type, 1);
+      await dispatch(fetchStoriesList(type));
+      await dispatch(
+        fetchListItems({
+          type,
+          page: 1,
+        })
+      );
     }
     fetchListAndItems();
 
     return () => {
-      clearStoriesList();
+      dispatch(clearStoriesList());
     };
   }, [params.type]);
 
   useEffect(() => {
     if (itemsList?.length !== 0) {
-      fetchListItems(type, page);
+      dispatch(
+        fetchListItems({
+          type,
+          page,
+        })
+      );
     }
   }, [page]);
 
