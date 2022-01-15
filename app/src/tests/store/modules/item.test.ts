@@ -1,11 +1,12 @@
 import store from 'store';
-import { ItemActionType } from 'store/action-types/item';
 
 import * as api from 'utils/api';
 
 import { storyMock as story } from 'tests/dummy/story';
 
 import { fetchItemWithComments } from 'store/action-creators/item';
+import { ItemActionType } from 'store/action-types/item';
+import { ItemAction } from 'store/actions/item';
 
 import { StoryInterface } from 'types/story';
 import { CommentInterface } from 'types/comment';
@@ -52,9 +53,7 @@ describe('Item async actions', () => {
       },
     } as unknown as ItemResponse);
 
-    // TODO: Remove ts ignore
-    // @ts-ignore
-    await store.dispatch(fetchItemWithComments(1));
+    await store.dispatch(fetchItemWithComments(1) as unknown as ItemAction);
 
     expect(itemSpy).toBeCalledTimes(4);
   });
