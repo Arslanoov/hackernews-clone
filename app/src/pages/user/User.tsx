@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
-import { useActions } from 'hooks/useActions';
 import { useSelector } from 'hooks/useSelector';
 
 import { currentUserSelector } from 'store/selectors/user';
+import { fetchUser, clearUser } from 'store/action-creators/user';
 
 import MainLayout from 'layouts/main/MainLayout';
 import UserSingleCard from 'components/common/card/user/single/UserSingleCard';
@@ -15,16 +16,16 @@ import { FullContent } from 'components/styled/content';
 import { Wrapper } from './styles';
 
 const User = () => {
+  const dispatch = useDispatch();
   const params = useParams();
-  const { fetchUser, clearUser } = useActions();
 
   const user = useSelector(currentUserSelector);
 
   useEffect(() => {
-    fetchUser(params.username ?? '');
+    dispatch(fetchUser(params.username ?? ''));
 
     return () => {
-      clearUser();
+      dispatch(clearUser());
     };
   }, [params.username]);
 

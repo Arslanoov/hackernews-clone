@@ -1,65 +1,22 @@
-import { Dispatch } from 'redux';
-
-import { StoryInterface, StoryListsTypes } from 'types/story';
-
-import { STORIES_PER_PAGE } from 'config/pagination';
-
-import { fetchStories, fetchItem } from 'utils/api';
-import { removeUriFromUrl } from 'utils/helpers/removeUri';
-
-import { RootState } from 'store/reducers';
-import { StoriesAction } from 'store/actions/stories';
 import { StoriesActionType } from 'store/action-types/stories';
 
-export const fetchStoriesList =
-  (type: StoryListsTypes) => async (dispatch: Dispatch<StoriesAction>) => {
-    const { data: storiesList } = await fetchStories(type);
-    dispatch({
-      type: StoriesActionType.SET_LIST,
-      payload: {
-        list: type,
-        listItems: storiesList,
-      },
-    });
-  };
+import { StoryListsTypes } from 'types/story';
 
-export const fetchListItems =
-  (type: StoryListsTypes, page: number = 1) =>
-  async (dispatch: Dispatch<StoriesAction>, getState: () => RootState) => {
-    const { stories: list } = getState();
+export const fetchStoriesList = (type: StoryListsTypes) => ({
+  type: StoriesActionType.FETCH_STORIES_LIST,
+  payload: {
+    type,
+  },
+});
 
-    const paginatedStoriesList = (list?.lists[type] as number[]).slice(
-      STORIES_PER_PAGE * (page - 1),
-      STORIES_PER_PAGE * page
-    );
+export const fetchListItems = (type: StoryListsTypes, page: number) => ({
+  type: StoriesActionType.FETCH_LIST_ITEMS,
+  payload: {
+    type,
+    page,
+  },
+});
 
-    const stories = await Promise.all(
-      paginatedStoriesList.map(
-        (id: number): Promise<StoryInterface> =>
-          new Promise<StoryInterface>((resolve) => {
-            fetchItem(id).then((response) =>
-              resolve(response.data as StoryInterface)
-            );
-          })
-      )
-    );
-
-    stories.forEach(
-      (item: StoryInterface) =>
-        item.url && (item.domainUrl = removeUriFromUrl(item.url))
-    );
-
-    dispatch({
-      type: StoriesActionType.SET_STORIES_LIST,
-      payload: {
-        items: stories,
-      },
-    });
-  };
-
-export const clearStoriesList =
-  () => async (dispatch: Dispatch<StoriesAction>) => {
-    dispatch({
-      type: StoriesActionType.CLEAR_LIST,
-    });
-  };
+export const clearStoriesList = () => ({
+  type: StoriesActionType.CLEAR_STORIES_LIST,
+});
