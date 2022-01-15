@@ -17,19 +17,8 @@ export interface SetListAction {
   };
 }
 
-export interface SetPageAction {
-  type: StoriesActionType.SET_CURRENT_PAGE;
-  payload: {
-    page: number;
-  };
-}
-
 export interface ClearListAction {
   type: StoriesActionType.CLEAR_LIST;
 }
 
-export type StoriesAction =
-  | SetStoriesAction
-  | SetListAction
-  | SetPageAction
-  | ClearListAction;
+export type StoriesAction = SetStoriesAction | SetListAction | ClearListAction;

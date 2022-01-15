@@ -55,13 +55,6 @@ export const fetchListItems =
         items: stories,
       },
     });
-
-    dispatch({
-      type: StoriesActionType.SET_CURRENT_PAGE,
-      payload: {
-        page,
-      },
-    });
   };
 
 export const clearStoriesList =
