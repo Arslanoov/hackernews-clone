@@ -8,6 +8,7 @@ module.exports = {
   parserOptions: {
     project: './tsconfig.json',
   },
+  ignorePatterns: ['jest.config.js'],
   rules: {
     'prettier/prettier': 'error',
     'react/function-component-definition': [

@@ -44,7 +44,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test:jest": "react-scripts test",
+    "test:jest": "react-scripts test --testPathIgnorePatterns='src/tests/e2e/*'",
     "test:e2e": "cypress run",
     "eject": "react-scripts eject",
     "lint:js": "npx eslint . --ext .js,.jsx,.ts,.tsx",
