@@ -13,7 +13,7 @@ const Header = () => (
     <Container>
       <FullContent>
         <Wrapper>
-          <NavLink to="/">
+          <NavLink to="/stories/top">
             <Logo src={LogoImage} alt="" />
           </NavLink>
           <Nav>
