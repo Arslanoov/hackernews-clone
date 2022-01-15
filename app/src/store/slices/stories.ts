@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { createSelector } from 'reselect';
 
-import { STORIES_PER_PAGE } from 'config/pagination';
+import { RootState } from 'store/rootReducer';
 
-import { RootState } from 'store/reducers';
+import { STORIES_PER_PAGE } from 'config/pagination';
 
 import { fetchItem, fetchStories } from 'utils/api';
 import { removeUriFromUrl } from 'utils/helpers/removeUri';
@@ -58,9 +58,10 @@ export const fetchListItems = createAsyncThunk(
     },
     { getState }
   ) => {
-    const { stories: list } = getState() as RootState;
+    const { stories: storiesState } = getState() as RootState;
+    const list = storiesState.lists[type] as number[];
 
-    const paginatedStoriesList = (list?.lists[type] as number[]).slice(
+    const paginatedStoriesList = list.slice(
       STORIES_PER_PAGE * (page - 1),
       STORIES_PER_PAGE * page
     );
@@ -87,7 +88,7 @@ export const fetchListItems = createAsyncThunk(
   }
 );
 
-const storiesSlice = createSlice({
+export const storiesSlice = createSlice({
   name: SLICE_NAME,
   initialState,
   reducers: {

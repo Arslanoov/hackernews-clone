@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from 'store/reducers';
+import { RootState } from 'store/rootReducer';
 
 import { COMMENTS_LIMIT } from 'config/pagination';
 
@@ -48,7 +48,7 @@ export const fetchItemWithComments = createAsyncThunk(
   }
 );
 
-const itemSlice = createSlice({
+export const itemSlice = createSlice({
   name: SLICE_NAME,
   initialState,
   reducers: {
