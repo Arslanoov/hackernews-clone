@@ -14,22 +14,16 @@ const Story = React.lazy(() => import('pages/story'));
 const User = React.lazy(() => import('pages/user'));
 
 const App = () => (
-  <Suspense
-    fallback={
-      <Router>
-        <MainLayout />
-      </Router>
-    }
-  >
-    <Router>
+  <Router>
+    <Suspense fallback={<MainLayout />}>
       <Routes>
         <Route path="/" element={<Navigate to="/stories/top" />} />
         <Route path="/stories/:type" element={<StoriesList />} />
         <Route path="/story/:id" element={<Story />} />
         <Route path="/user/:username" element={<User />} />
       </Routes>
-    </Router>
-  </Suspense>
+    </Suspense>
+  </Router>
 );
 
 export default App;
