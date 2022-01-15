@@ -13,7 +13,7 @@ import { StoriesAction } from 'store/actions/stories';
 import { ItemResponse, StoriesResponse } from 'types/response/item';
 import { StoryListsTypes } from 'types/story';
 
-describe('Stories sync functions', () => {
+describe('Stories async functions', () => {
   it('fetch list', async () => {
     expect(store.getState().stories?.lists.top).toStrictEqual([]);
 
