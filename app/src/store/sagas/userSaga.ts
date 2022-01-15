@@ -20,6 +20,16 @@ function* onFetchUser() {
   yield takeLatest(UserActionType.FETCH_USER, fetchUserSaga);
 }
 
+function* clearUserSaga() {
+  yield put({
+    type: UserActionType.CLEAR_USER,
+  });
+}
+
+function* onClearUser() {
+  yield takeLatest(UserActionType.CLEAR_ITEM, clearUserSaga);
+}
+
 export default function* userSaga() {
-  yield all([fork(onFetchUser)]);
+  yield all([fork(onFetchUser), fork(onClearUser)]);
 }

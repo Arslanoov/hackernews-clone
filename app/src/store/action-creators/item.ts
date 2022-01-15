@@ -8,5 +8,5 @@ export const fetchItemWithComments = (id: number) => ({
 });
 
 export const clearItemWithComments = () => ({
-  type: ItemActionType.CLEAR_ITEM_WITH_COMMENTS,
+  type: ItemActionType.CLEAR_ITEM,
 });

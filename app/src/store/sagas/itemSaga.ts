@@ -58,10 +58,7 @@ function* clearItemWithCommentsSaga() {
 }
 
 function* onClearItemWithComments() {
-  yield takeLatest(
-    ItemActionType.CLEAR_ITEM_WITH_COMMENTS,
-    clearItemWithCommentsSaga
-  );
+  yield takeLatest(ItemActionType.CLEAR_ITEM, clearItemWithCommentsSaga);
 }
 
 export default function* itemSaga() {

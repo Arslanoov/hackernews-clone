@@ -8,5 +8,5 @@ export const fetchUser = (username: string) => ({
 });
 
 export const clearUser = () => ({
-  type: UserActionType.CLEAR_USER,
+  type: UserActionType.CLEAR_ITEM,
 });
