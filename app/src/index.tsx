@@ -1,16 +1,15 @@
 import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
 
-import store from 'store';
+import { StoreProvider } from 'components/provider/StoreProvider';
 
 import App from './App';
 
 ReactDOM.render(
   <StrictMode>
-    <Provider store={store}>
+    <StoreProvider>
       <App />
-    </Provider>
+    </StoreProvider>
   </StrictMode>,
   document.getElementById('app')
 );
