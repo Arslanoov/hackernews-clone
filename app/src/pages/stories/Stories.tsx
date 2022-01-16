@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { observer } from 'mobx-react-lite';
 
-import { useActions } from 'hooks/useActions';
-import { useSelector } from 'hooks/useSelector';
-
-import {
-  storiesSelector,
-  storiesTotalCountSelector,
-} from 'store/selectors/stories';
+import { useStores } from 'hooks/useStores';
 
 import { STORIES_PER_PAGE } from 'config/pagination';
 
@@ -24,31 +19,29 @@ const Stories = () => {
   const params = useParams();
   const type = params.type as StoryListsTypes;
 
+  const { storiesStore } = useStores();
+
   const [page, setPage] = useState<number>(1);
 
-  const itemsList = useSelector(storiesSelector);
-  const totalCount = useSelector((state) =>
-    storiesTotalCountSelector(type)(state)
-  );
-
-  const { fetchStoriesList, fetchListItems, clearStoriesList } = useActions();
+  const itemsList = storiesStore.stories;
+  const totalCount = storiesStore.lists[type].length;
 
   useEffect(() => {
     async function fetchListAndItems() {
       setPage(1);
-      await fetchStoriesList(type);
-      await fetchListItems(type, 1);
+      await storiesStore.fetchStoriesList(type);
+      await storiesStore.fetchListItems(type, 1);
     }
     fetchListAndItems();
 
     return () => {
-      clearStoriesList();
+      storiesStore.clearList();
     };
   }, [params.type]);
 
   useEffect(() => {
     if (itemsList?.length !== 0) {
-      fetchListItems(type, page);
+      storiesStore.fetchListItems(type, page);
     }
   }, [page]);
 
@@ -68,4 +61,4 @@ const Stories = () => {
   );
 };
 
-export default Stories;
+export default observer(Stories);

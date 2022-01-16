@@ -19,3 +19,9 @@ export class RootStore {
     this.storiesStore = storiesStore;
   }
 }
+
+export const store = new RootStore(
+  new UserStore(),
+  new ItemStore(),
+  new StoriesStore()
+);

@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { observer } from 'mobx-react-lite';
 
-import { useActions } from 'hooks/useActions';
-import { useSelector } from 'hooks/useSelector';
-
-import { currentUserSelector } from 'store/selectors/user';
+import { useStores } from 'hooks/useStores';
 
 import MainLayout from 'layouts/main/MainLayout';
 import UserSingleCard from 'components/common/card/user/single/UserSingleCard';
@@ -16,15 +14,15 @@ import { Wrapper } from './styles';
 
 const User = () => {
   const params = useParams();
-  const { fetchUser, clearUser } = useActions();
+  const { userStore } = useStores();
 
-  const user = useSelector(currentUserSelector);
+  const user = userStore.current;
 
   useEffect(() => {
-    fetchUser(params.username ?? '');
+    userStore.fetchUser(params.username ?? '');
 
     return () => {
-      clearUser();
+      userStore.clearUser();
     };
   }, [params.username]);
 
@@ -39,4 +37,4 @@ const User = () => {
   );
 };
 
-export default User;
+export default observer(User);

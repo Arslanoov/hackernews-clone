@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { observer } from 'mobx-react-lite';
 
-import { useActions } from 'hooks/useActions';
-import { useSelector } from 'hooks/useSelector';
-
-import { itemSelector, commentsSelector } from 'store/selectors/item';
+import { useStores } from 'hooks/useStores';
 
 import { ItemInterface } from 'types/item';
 import { CommentsTree } from 'types/comment';
@@ -18,16 +16,15 @@ import { FullContent } from 'components/styled/content';
 
 const Story = () => {
   const params = useParams();
-  const { fetchItemWithComments, clearItemWithComments } = useActions();
+  const { itemStore } = useStores();
 
-  const story = useSelector(itemSelector);
-  const comments = useSelector(commentsSelector);
+  const { story, comments } = itemStore;
 
   useEffect(() => {
-    fetchItemWithComments(Number(params.id));
+    itemStore.fetchItemWithComments(Number(params.id));
 
     return () => {
-      clearItemWithComments();
+      itemStore.clearItemWithComments();
     };
   }, []);
 
@@ -50,4 +47,4 @@ const Story = () => {
   );
 };
 
-export default Story;
+export default observer(Story);
