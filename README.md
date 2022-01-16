@@ -5,6 +5,7 @@
     <img width="50px" src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" alt=""/>
     <img height="50px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1280px-React-icon.svg.png" alt="" />
     <img style="margin-right: 15px" width="50px" src="https://cdn.worldvectorlogo.com/logos/redux.svg" alt=""/>
+    <img style="margin-right: 15px" width="50px" src="https://mobx.js.org/img/mobx.png" alt=""/>
     <img width="50px" src="https://user-images.githubusercontent.com/51407990/149630941-61334394-9db3-47dc-83f5-b6bdcabdde0d.png" alt="" />
 </p>
 
@@ -12,7 +13,7 @@
     <li><a href="https://github.com/Arslanoov/hackernews-clone/tree/redux">Redux Thunk Version</a></li>
     <li><a href="https://github.com/Arslanoov/hackernews-clone/tree/redux-toolkit">Redux Toolkit Version</a></li>
     <li><a href="https://github.com/Arslanoov/hackernews-clone/tree/redux-saga">Redux Saga Version</a></li>
-    <li><a href="#">Mobx Version (WIP)</a></li>
+    <li><a href="https://github.com/Arslanoov/hackernews-clone/tree/mobx">Mobx Version</a></li>
 </ul>
 
 <p align="center"><b>Start the project</b></p>
